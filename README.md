@@ -3,8 +3,11 @@ Proyecto desarrollado: Sistema de prestamo de Computadoras / Notebooks
 Nombre del Grupo: Compilando Compus
 Integrantes: 
 > Nahuel Aguilar
+
 > Nahuel Herrera
+
 > Brian Martinez
+
 > Ivan Fernandez
 
 Breve descripcion: Este sistema permite a los usuarios que son los alumnos, profesores y administradores realizar el prestamo de notebooks de forma rapida y actualizada, 
