@@ -1,3 +1,4 @@
+Escuela Tecnica N°1 Otto Krause
 Proyecto de Practicas Profesionalizantes 2024 
 Proyecto desarrollado: Sistema de prestamo de Computadoras / Notebooks
 Nombre del Grupo: Compilando Compus
