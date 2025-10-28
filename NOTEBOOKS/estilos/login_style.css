@@ -171,3 +171,47 @@ input::placeholder {
 input[type="password"]:focus {
     border: 2px solid #5e9bff; /* Color de borde azul al hacer foco */
 }
+
+/* Css y animacion de la notificacion implementada el 20/10 */
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50; /* Verde para éxito */
+    color: white;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    display: none; /* Inicialmente está oculta */
+}
+
+.success-notification {
+    background-color: #4CAF50;
+}
+
+.error-notification {
+    background-color: #f44336; /* Rojo para error */
+}
+
+.notification p {
+    margin: 0;
+}
+
+.notification.show {
+    display: block; /* Mostrar la notificación */
+}
+
+/* Animación para la notificación */
+@keyframes slideIn {
+    from {
+        top: -100px;
+        opacity: 0;
+    }
+    to {
+        top: 20px;
+        opacity: 1;
+    }
+}
