@@ -6,7 +6,7 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1a0000 0%, #4a0000 50%, #8B0000 100%);
     position: relative;
     overflow: hidden;
     animation: backgroundPulse 10s ease infinite;
@@ -45,7 +45,7 @@ body::after {
     position: absolute;
     width: 300px;
     height: 300px;
-    background: radial-gradient(circle, rgba(102, 126, 234, 0.3), transparent);
+    background: radial-gradient(circle, rgba(220, 20, 60, 0.3), transparent);
     border-radius: 50%;
     top: -150px;
     right: -150px;
@@ -80,14 +80,14 @@ form {
     z-index: 1;
     backdrop-filter: blur(20px);
     background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     padding: 50px 40px;
     border-radius: 24px;
     display: flex;
     flex-direction: column;
     text-align: center;
     width: 420px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(220, 20, 60, 0.2);
     animation: slideUpBounce 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
@@ -105,34 +105,37 @@ form {
     }
 }
 
+/* Efecto de brillo en el borde */
 form::before {
     content: '';
     position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, #667eea, #764ba2, #667eea);
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, #DC143C, #8B0000, #DC143C, #8B0000);
+    background-size: 300% 300%;
     border-radius: 24px;
     z-index: -1;
     opacity: 0;
     transition: opacity 0.5s;
-    animation: rotateBorder 4s linear infinite;
+    animation: borderFlow 3s linear infinite;
 }
 
-@keyframes rotateBorder {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+@keyframes borderFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 form:hover::before {
-    opacity: 0.6;
+    opacity: 0.7;
 }
 
 form h2 {
     font-size: 32px;
     font-weight: 700;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -147,7 +150,7 @@ form h2 {
 
 form p {
     font-size: 15px;
-    color: #6b7280;
+    color: #1a0000;
     margin-bottom: 35px;
     font-weight: 400;
     animation: fadeIn 1s ease-out 0.3s backwards;
@@ -187,13 +190,13 @@ form p {
     transform: translateY(-50%);
     cursor: pointer;
     font-size: 20px;
-    color: #9ca3af;
+    color: #6b7280;
     transition: all 0.3s ease;
     z-index: 2;
 }
 
 .bx:hover {
-    color: #667eea;
+    color: #DC143C;
     transform: translateY(-50%) scale(1.2) rotate(10deg);
 }
 
@@ -221,16 +224,16 @@ input {
 }
 
 input:focus {
-    border-color: #667eea;
+    border-color: #DC143C;
     background: #ffffff;
-    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    box-shadow: 0 0 0 4px rgba(220, 20, 60, 0.1);
     transform: translateY(-2px);
     animation: inputPulse 0.6s ease;
 }
 
 @keyframes inputPulse {
-    0%, 100% { box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1); }
-    50% { box-shadow: 0 0 0 8px rgba(102, 126, 234, 0.2); }
+    0%, 100% { box-shadow: 0 0 0 4px rgba(220, 20, 60, 0.1); }
+    50% { box-shadow: 0 0 0 8px rgba(220, 20, 60, 0.2); }
 }
 
 input::placeholder {
@@ -263,7 +266,7 @@ input:focus + .input-icon {
 
 .btn {
     padding: 16px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
     border: none;
     border-radius: 12px;
     color: #ffffff;
@@ -273,7 +276,7 @@ input:focus + .input-icon {
     letter-spacing: 0.5px;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 4px 15px rgba(220, 20, 60, 0.4);
     position: relative;
     overflow: hidden;
     animation: slideInLeft 0.6s ease-out 0.7s backwards;
@@ -299,7 +302,7 @@ input:focus + .input-icon {
 
 .btn:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+    box-shadow: 0 8px 25px rgba(220, 20, 60, 0.6);
 }
 
 .btn:active {
@@ -347,13 +350,13 @@ input:focus + .input-icon {
     top: 30px;
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
     color: white;
     padding: 16px 32px;
     border-radius: 12px;
     font-size: 15px;
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+    box-shadow: 0 4px 15px rgba(220, 20, 60, 0.4);
     animation: errorShake 0.8s ease;
     z-index: 1000;
 }
@@ -370,7 +373,7 @@ input:focus + .input-icon {
     padding: 15px;
     background: #f3f4f6;
     border-radius: 10px;
-    border-left: 4px solid #667eea;
+    border-left: 4px solid #DC143C;
     animation: slideInRight 0.6s ease-out 0.8s backwards;
 }
 
@@ -392,7 +395,7 @@ input:focus + .input-icon {
 }
 
 .password-requirements li {
-    color: #6b7280;
+    color: #1a0000;
     font-size: 13px;
     margin: 8px 0;
     padding-left: 24px;
@@ -432,7 +435,7 @@ input:focus + .input-icon {
 }
 
 .password-requirements li.invalid {
-    color: #ef4444;
+    color: #DC143C;
 }
 
 @media(max-width: 991px) {
@@ -468,12 +471,12 @@ input:focus + .input-icon {
 .form-link {
     margin-top: 20px;
     font-size: 14px;
-    color: #6b7280;
+    color: #1a0000;
     animation: fadeIn 1s ease-out 0.9s backwards;
 }
 
 .form-link a {
-    color: #667eea;
+    color: #DC143C;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -487,7 +490,7 @@ input:focus + .input-icon {
     left: 0;
     width: 0;
     height: 2px;
-    background: #764ba2;
+    background: #8B0000;
     transition: width 0.3s ease;
 }
 
@@ -496,6 +499,6 @@ input:focus + .input-icon {
 }
 
 .form-link a:hover {
-    color: #764ba2;
+    color: #8B0000;
     transform: translateX(5px);
 }

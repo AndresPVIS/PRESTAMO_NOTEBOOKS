@@ -6,7 +6,7 @@ body {
     margin: 0;
     padding: 20px;
     font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background: linear-gradient(135deg, #1a0000 0%, #4a0000 50%, #8B0000 100%);
     position: relative;
     overflow-x: hidden;
     animation: gradientRotate 8s ease infinite;
@@ -14,7 +14,7 @@ body {
 
 @keyframes gradientRotate {
     0%, 100% { filter: hue-rotate(0deg); }
-    50% { filter: hue-rotate(20deg); }
+    50% { filter: hue-rotate(10deg); }
 }
 
 body::before {
@@ -43,7 +43,7 @@ body::after {
     position: absolute;
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(245, 87, 108, 0.4), transparent);
+    background: radial-gradient(circle, rgba(220, 20, 60, 0.4), transparent);
     border-radius: 50%;
     bottom: -200px;
     left: -200px;
@@ -84,7 +84,7 @@ form {
     z-index: 1;
     backdrop-filter: blur(20px);
     background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     padding: 45px 35px;
     border-radius: 24px;
     display: flex;
@@ -92,7 +92,7 @@ form {
     text-align: center;
     width: 100%;
     max-width: 450px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(220, 20, 60, 0.3);
     animation: formEntrance 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
@@ -115,7 +115,7 @@ form::before {
     left: -3px;
     right: -3px;
     bottom: -3px;
-    background: linear-gradient(45deg, #f093fb, #f5576c, #f093fb, #f5576c);
+    background: linear-gradient(45deg, #DC143C, #8B0000, #DC143C, #8B0000);
     background-size: 300% 300%;
     border-radius: 24px;
     z-index: -1;
@@ -137,7 +137,7 @@ form:hover::before {
 form h2 {
     font-size: 30px;
     font-weight: 700;
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -152,7 +152,7 @@ form h2 {
 
 form p {
     font-size: 14px;
-    color: #6b7280;
+    color: #1a0000;
     margin-bottom: 30px;
     font-weight: 400;
     animation: fadeInUp 0.8s ease-out 0.3s backwards;
@@ -202,13 +202,13 @@ form p {
     margin-bottom: 8px;
     font-size: 13px;
     font-weight: 600;
-    color: #374151;
+    color: #1a0000;
     letter-spacing: 0.3px;
     transition: all 0.3s ease;
 }
 
 .input-wrapper:focus-within label {
-    color: #f5576c;
+    color: #DC143C;
     transform: translateX(5px);
 }
 
@@ -219,15 +219,15 @@ form p {
     transform: translateY(-50%);
     cursor: pointer;
     font-size: 20px;
-    color: #9ca3af;
+    color: #6b7280;
     transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     z-index: 2;
 }
 
 .bx:hover {
-    color: #f5576c;
+    color: #DC143C;
     transform: translateY(-50%) scale(1.3) rotate(15deg);
-    filter: drop-shadow(0 0 8px rgba(245, 87, 108, 0.6));
+    filter: drop-shadow(0 0 8px rgba(220, 20, 60, 0.6));
 }
 
 .bx:active {
@@ -254,16 +254,16 @@ input {
 }
 
 input:focus {
-    border-color: #f5576c;
+    border-color: #DC143C;
     background: #ffffff;
-    box-shadow: 0 0 0 4px rgba(245, 87, 108, 0.1);
+    box-shadow: 0 0 0 4px rgba(220, 20, 60, 0.1);
     transform: translateY(-3px) scale(1.01);
     animation: inputGlow 1s ease infinite;
 }
 
 @keyframes inputGlow {
-    0%, 100% { box-shadow: 0 0 0 4px rgba(245, 87, 108, 0.1); }
-    50% { box-shadow: 0 0 0 8px rgba(245, 87, 108, 0.15); }
+    0%, 100% { box-shadow: 0 0 0 4px rgba(220, 20, 60, 0.1); }
+    50% { box-shadow: 0 0 0 8px rgba(220, 20, 60, 0.15); }
 }
 
 input::placeholder {
@@ -304,7 +304,7 @@ input:focus::placeholder {
     padding: 15px 30px;
     border-radius: 12px;
     border: 2px solid transparent;
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
     color: #ffffff;
     text-transform: uppercase;
     font-size: 13px;
@@ -312,7 +312,7 @@ input:focus::placeholder {
     letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 20px rgba(245, 87, 108, 0.4);
+    box-shadow: 0 4px 20px rgba(220, 20, 60, 0.4);
     margin-top: 10px;
     position: relative;
     overflow: hidden;
@@ -336,13 +336,13 @@ input:focus::placeholder {
 
 .btn:hover {
     transform: translateY(-4px) scale(1.03);
-    box-shadow: 0 10px 30px rgba(245, 87, 108, 0.6);
+    box-shadow: 0 10px 30px rgba(220, 20, 60, 0.6);
     animation: buttonPulse 1s ease infinite;
 }
 
 @keyframes buttonPulse {
-    0%, 100% { box-shadow: 0 10px 30px rgba(245, 87, 108, 0.6); }
-    50% { box-shadow: 0 10px 40px rgba(245, 87, 108, 0.8); }
+    0%, 100% { box-shadow: 0 10px 30px rgba(220, 20, 60, 0.6); }
+    50% { box-shadow: 0 10px 40px rgba(220, 20, 60, 0.8); }
 }
 
 .btn:active {
@@ -355,7 +355,7 @@ input:focus::placeholder {
     top: 30px;
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
     color: white;
     padding: 16px 32px;
     border-radius: 12px;
@@ -388,13 +388,13 @@ input:focus::placeholder {
     top: 30px;
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
+    background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
     color: white;
     padding: 16px 32px;
     border-radius: 12px;
     font-size: 15px;
     font-weight: 600;
-    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+    box-shadow: 0 6px 20px rgba(220, 20, 60, 0.4);
     animation: errorWiggle 0.6s ease;
     z-index: 1000;
     margin-top: 10px;
@@ -420,7 +420,7 @@ input:focus::placeholder {
     transform: translateY(-50%);
     background: none;
     border: none;
-    color: #f5576c;
+    color: #DC143C;
     cursor: pointer;
     font-size: 14px;
     font-weight: 600;
@@ -428,7 +428,7 @@ input:focus::placeholder {
 }
 
 .toggle-password:hover {
-    color: #1eff00;
+    color: #8B0000;
     text-decoration: underline;
     transform: translateY(-50%) scale(1.1);
 }
@@ -463,12 +463,12 @@ input:focus::placeholder {
 }
 
 .success-notification {
-    background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
     color: white;
 }
 
 .error-notification {
-    background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
+    background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
     color: white;
 }
 
@@ -483,9 +483,9 @@ input:focus::placeholder {
 .password-requirements {
     margin-top: 15px;
     padding: 16px;
-    background: linear-gradient(135deg, #fef3f2 0%, #fee2e2 100%);
+    background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
     border-radius: 12px;
-    border-left: 4px solid #f5576c;
+    border-left: 4px solid #DC143C;
     text-align: left;
     animation: slideInRight 0.6s ease-out 1s backwards;
 }
@@ -548,7 +548,7 @@ input:focus::placeholder {
 }
 
 .password-requirements .invalid {
-    color: #ef4444;
+    color: #DC143C;
 }
 
 @media(max-width: 991px) {
@@ -583,7 +583,7 @@ input:focus::placeholder {
 .form-link {
     margin-top: 20px;
     font-size: 14px;
-    color: #6b7280;
+    color: #1a0000;
     animation: fadeIn 1s ease-out 1.1s backwards;
 }
 
@@ -593,7 +593,7 @@ input:focus::placeholder {
 }
 
 .form-link a {
-    color: #f5576c;
+    color: #DC143C;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -607,7 +607,7 @@ input:focus::placeholder {
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #ff0303, #f5576c);
+    background: linear-gradient(90deg, #DC143C, #8B0000);
     transition: width 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
@@ -616,6 +616,6 @@ input:focus::placeholder {
 }
 
 .form-link a:hover {
-    color: #ff0303;
+    color: #8B0000;
     transform: translateX(8px);
 }
