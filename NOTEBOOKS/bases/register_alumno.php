@@ -29,7 +29,7 @@
 
         <!-- Campo para ingresar la contraseña -->
         <div class="input-wrapper">
-            <input type="password" name="password" id="password" placeholder="Contraseña" required="">
+            <input type="password" name="password" id="password" placeholder="Contraseña" required="" onkeyup="checkPassword()">
             <i class='bx bx-show-alt' id="toggle-password"></i>
         </div>
 
@@ -52,9 +52,9 @@
         </div>
 
         <!-- Campo para ingresar la clave numérica -->
-        <div class="input-wrapper">
+        <!-- <div class="input-wrapper">
             <input type="text" name="clave" id="clave" placeholder="Clave Numérica (5-8 dígitos)" pattern="^\d{5,8}$" required="">
-        </div>
+        </div> -->
 
         <div id="password-requirements" class="password-requirements">
             <ul>
@@ -72,13 +72,40 @@
         <!-- <p><a href="../bases/index.php" class="create-account"> <-- Volver al inicio</a></p> -->
     </form>
 
+
     <?php
         // Incluye el archivo para registrar al alumno si se envía el formulario
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             include("../bases/RegistrarAlumno.php");
         }
     ?>
-    <script src="../js/script.js"></script>
+
+        <script>
+        function checkPassword() {
+            var password = document.getElementById('password').value;
+
+            // Requisitos de la contraseña
+            var lengthRequirement = document.getElementById('length');
+            var lowercaseRequirement = document.getElementById('lowercase');
+            var numberRequirement = document.getElementById('number');
+
+            // Validar los requisitos
+            var isLengthValid = password.length >= 8;
+            var isLowercaseValid = /[a-z]/.test(password);
+            var isNumberValid = /\d/.test(password);
+
+            // Cambiar el estado de los requisitos según la contraseña
+            lengthRequirement.classList.toggle('valid', isLengthValid);
+            lengthRequirement.classList.toggle('invalid', !isLengthValid);
+
+            lowercaseRequirement.classList.toggle('valid', isLowercaseValid);
+            lowercaseRequirement.classList.toggle('invalid', !isLowercaseValid);
+
+            numberRequirement.classList.toggle('valid', isNumberValid);
+            numberRequirement.classList.toggle('invalid', !isNumberValid);
+        }
+    </script>
+    <!-- <script src="../js/script.js"></script> -->
     <script src="../js/grado.js"></script>
 </body>
 </html>

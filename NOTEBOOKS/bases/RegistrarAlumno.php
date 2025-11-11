@@ -37,17 +37,24 @@ if (isset($_POST['register'])) {
     }
 
     // Verificar que los campos necesarios no estén vacíos
+    // if (strlen($_POST['name']) >= 1 && strlen($_POST['email']) >= 1 && strlen($_POST['password']) >= 1 &&
+    //     strlen($_POST['clave']) >= 1 && (!$division_valida || $especial_existe)) {
     if (strlen($_POST['name']) >= 1 && strlen($_POST['email']) >= 1 && strlen($_POST['password']) >= 1 &&
-        strlen($_POST['clave']) >= 1 && (!$division_valida || $especial_existe)) {
-        
+        (!$division_valida || $especial_existe)) {
         $name = trim($_POST['name']);
         $email = trim($_POST['email']);
         $password = trim($_POST['password']);
-        $clave = trim($_POST['clave']); // Recupera la clave proporcionada por el usuario
+        if (strlen($password) >= 8 && preg_match('/[a-z]/', $password) && preg_match('/\d/', $password)) {
+        // $clave = trim($_POST['clave']); // Recupera la clave proporcionada por el usuario
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         $fecha = date("Y-m-d");
         $tipo_usuario = determinarTipoUsuario($name);
         $activo = 0; // Valor por defecto para la cuenta inactiva
+        }
+        // else{
+        //     echo "<h3 class='error'>la contraseña no cumple con las validaciones.</h3>";
+        // }
+
 
         // Verificar si el correo ya está registrado
         $checkEmailQuery = $conex->prepare("SELECT * FROM usuario WHERE email = ?");
@@ -64,10 +71,13 @@ if (isset($_POST['register'])) {
         if ($checkEmailQuery->num_rows > 0) {
             echo "<h3 class='error'>El correo ya está registrado. Por favor, use un correo diferente.</h3>";
         } else {
+            if(strlen($password) >= 8 && preg_match('/[a-z]/', $password) && preg_match('/\d/', $password)){
             // Insertar los datos del usuario en la base de datos, incluyendo la clave proporcionada por el usuario
-            $consulta = $conex->prepare("INSERT INTO usuario(nombre, email, contraseña, division, especialidad, tipo_usuario, fecha, activo, clave) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            // $consulta = $conex->prepare("INSERT INTO usuario(nombre, email, contraseña, division, especialidad, tipo_usuario, fecha, activo, clave) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $consulta = $conex->prepare("INSERT INTO usuario(nombre, email, contraseña, division, especialidad, tipo_usuario, fecha, activo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             if ($consulta) {
-                $consulta->bind_param("ssssssssd", $name, $email, $hashed_password, $division, $especialidad, $tipo_usuario, $fecha, $activo, $clave);
+                // $consulta->bind_param("ssssssssd", $name, $email, $hashed_password, $division, $especialidad, $tipo_usuario, $fecha, $activo, $clave);
+                $consulta->bind_param("ssssssss", $name, $email, $hashed_password, $division, $especialidad, $tipo_usuario, $fecha, $activo);
                 if ($consulta->execute()) {
                     // Mostrar mensaje de notificación en lugar de mensaje en verde
                     echo "<div id='success-notification' class='notification success-notification'>
@@ -80,6 +90,7 @@ if (isset($_POST['register'])) {
             } else {
                 echo "<h3 class='error'>Error en la preparación de la consulta de inserción: " . $conex->error . "</h3>";
             }
+          }
         }
         $checkEmailQuery->close();
     } else {

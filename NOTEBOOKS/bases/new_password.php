@@ -24,10 +24,10 @@
         </div>
 
         <!-- Campo para la clave de recuperación -->
-        <div class="input-wrapper">
+        <!-- <div class="input-wrapper"> -->
             <!-- Cambié el nombre de 'recuperacion_clave' a 'clave' para que coincida con el código PHP -->
-            <input type="text" name="clave" placeholder="Clave de Recuperación" required="">
-        </div>
+            <!-- <input type="text" name="clave" placeholder="Clave de Recuperación" required=""> -->
+        <!-- </div> -->
 
         <!-- Botón para enviar el formulario -->
         <input class="btn" type="submit" name="verify" value="Continuar">
