@@ -43,7 +43,7 @@ if (isset($_POST['verify'])) {
                 $mail->Host       = 'smtp.gmail.com';
                 $mail->SMTPAuth   = true;
                 $mail->Username   = 'example@test.com';  //aca va el mail el cual enviara el link de cambio de contraseña
-                $mail->Password   = 'rpsm jlor kntp vyrs';  // contraseña encriptada de ela cuenta de gmail (cambibar segun el mail utilizado)
+                $mail->Password   = 'rpsm jlor kntp vyrs';  // contraseña encriptada de la cuenta del mail (cambiar segun el mail utilizado)
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port       = 587;
 
@@ -80,3 +80,4 @@ if (isset($_POST['verify'])) {
     mysqli_close($conex);
 }
 ?>
+
