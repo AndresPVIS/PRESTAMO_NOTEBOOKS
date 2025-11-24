@@ -42,16 +42,16 @@ if (isset($_POST['verify'])) {
                 $mail->isSMTP();
                 $mail->Host       = 'smtp.gmail.com';
                 $mail->SMTPAuth   = true;
-                $mail->Username   = 'andres.paco06@gmail.com';
-                $mail->Password   = 'rpsm jlor kntp vzcz';
+                $mail->Username   = 'example@test.com';  //aca va el mail el cual enviara el link de cambio de contraseña
+                $mail->Password   = 'rpsm jlor kntp vyrs';  // contraseña encriptada de ela cuenta de gmail (cambibar segun el mail utilizado)
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port       = 587;
 
-                $mail->setFrom('andres.paco06@gmail.com', 'reseteo de contraseña');
-                $mail->addAddress($email, 'linaza');
+                $mail->setFrom('example@test.com', 'reseteo de contraseña');  //colocar el mismo mail 
+                $mail->addAddress($email, 'test');
                 $mail->isHTML(true);
                 $mail->Subject = 'Recuperación de contraseña';
-                $mail->Body    = 'linaza accede al siguiente link para cambiar tu contraseña: http://localhost/prestamo_notebooks/NOTEBOOKS/bases/cambiar_password.php?email='. urlencode($email) ;
+                $mail->Body    = ' accede al siguiente link para cambiar tu contraseña: http://localhost/prestamo_notebooks/NOTEBOOKS/bases/cambiar_password.php?email='. urlencode($email) ;
                 $mail->send();
                 // header("Location: ../index.php?message=ok");
             }catch(Exception $e){
